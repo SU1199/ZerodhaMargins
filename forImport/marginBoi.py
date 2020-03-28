@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import sys
 
 def equityFutures(ticker):
     j =0
@@ -86,25 +85,3 @@ def commodity(ticker):
                 data = data + completeRow + '\n'
         j = j+1
     return head + data
-
-def help_me():
-    print("\n\n\nEnter 'python3 marginBoi.py <TICKER> <x>' where x can be : \n'com' : Commodity\n'eq' : Equities\n'eqfut' : Equity Futures\n'fxfut' : Currency Futures\nExample : 'python3 marginBoi.py BHEL eqfut'\n\n\n")
-
-
-arguments = sys.argv[1:]
-if len(arguments) < 2 or arguments[0] == '--help':
-    help_me()
-elif len(arguments) == 2:   
-    ticker_input = arguments[0]
-    command = arguments[1]
-    if command == "com":
-        print(commodity(ticker_input))
-    elif command == "eq":
-        print(equity(ticker_input))
-    elif command == "eqfut":
-        print(equityFutures(ticker_input))
-    elif command == "fxfut":
-        print(currencyFutures(ticker_input))
-
-# print(ticker_input)
-# print(command)
